@@ -9,7 +9,7 @@ export const AppLayout = () => {
   return (
     <>
       {/* <Layout className="bg-neutral-100 antialiased dark:bg-neutral-700"> */}
-      <Container>
+      <Container className="relative">
         <Navbar />
         <Outlet />
       </Container>
