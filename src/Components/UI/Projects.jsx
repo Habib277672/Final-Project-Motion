@@ -34,8 +34,11 @@ export const Projects = () => {
     },
   ];
   return (
-    <div className="py-10">
-      <p className="text-secondary max-w-lg pt-4 text-sm md:text-sm">
+    <div className="py-8">
+      <h2 className="font-semibold tracking-tight text-neutral-800">
+        My Recent Projects
+      </h2>
+      <p className="text-secondary max-w-lg pt-2 text-sm md:text-sm">
         I Love Building Web Apps and products that can impact millions of lives
       </p>
       <div className="grid grid-cols-1 gap-4 py-4 md:grid-cols-2">

@@ -4,8 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { AppLayout } from "./Components/Layout/AppLayout";
 import { Home } from "./Pages/Home";
 import { About } from "./Pages/About";
-import { Projects } from "./Pages/Projects";
-import { Blog } from "./Pages/Blog";
+import { Projects } from "./Pages/Projects-p";
 import { Contact } from "./Pages/Contact";
 
 const App = () => {
@@ -17,7 +16,6 @@ const App = () => {
         { path: "/", element: <Home /> },
         { path: "/about", element: <About /> },
         { path: "/projects", element: <Projects /> },
-        { path: "/blog", element: <Blog /> },
         { path: "/contact", element: <Contact /> },
       ],
     },

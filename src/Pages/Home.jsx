@@ -5,7 +5,7 @@ import { Projects } from "../Components/UI/Projects";
 export const Home = () => {
   return (
     <div className="flex min-h-screen justify-start">
-      <Container className="min-h-[200vh] p-4 md:pt-20 md:pb-10">
+      <Container className="min-h-[200vh] px-10 py-4 md:pt-20 md:pb-10">
         <h1 className="text-primary text-2xl font-bold tracking-tight md:text-4xl">
           Habib Ur Rehman!
         </h1>

@@ -1,20 +1,27 @@
 import React, { useState } from "react";
 import { Container } from "./Container";
 import { NavLink } from "react-router-dom";
-import { motion, useMotionValueEvent, useScroll } from "motion/react";
+import {
+  motion,
+  useMotionValueEvent,
+  useScroll,
+  useTransform,
+} from "motion/react";
 
 export const Navbar = () => {
   const navItems = [
     { title: "About", to: "/about" },
     { title: "Projects", to: "/projects" },
     { title: "Contact", to: "/contact" },
-    { title: "Blog", to: "/blog" },
   ];
 
   const [hovered, setHovered] = useState(null);
   const { scrollY } = useScroll();
 
   const [scrolled, setScrolled] = useState("");
+  const y = useTransform(scrollY, [0, 100], [0, 10]);
+  const width = useTransform(scrollY, [0, 100], ["100%", "50%"]);
+
   useMotionValueEvent(scrollY, "change", (latest) => {
     if (latest > 20) {
       setScrolled(true);
@@ -26,19 +33,25 @@ export const Navbar = () => {
   return (
     <Container>
       <motion.nav
-        animate={{
+        style={{
           boxShadow: scrolled ? "var(--shadow-custom)" : "none",
-          width: scrolled ? "50%" : "100%",
-          y: scrolled ? 10 : 0,
+          width,
+          y,
         }}
         transition={{
           duration: 0.3,
           ease: "easeInOut",
         }}
-        className="fixed inset-x-0 top-0 z-50 mx-auto flex max-w-4xl items-center justify-between rounded-full px-3 py-2"
+        className="fixed inset-x-0 top-0 z-50 mx-auto flex max-w-4xl items-center justify-between rounded-full bg-white px-3 py-2"
       >
         <NavLink to="/">
-          <span>Panda Coders</span>
+          <img
+            src="/logo.png"
+            alt="Avatar"
+            width={50}
+            height={50}
+            className="rounded-full drop-shadow-blue-200 transition hover:scale-[1.02]"
+          />
         </NavLink>
         <div className="relative flex items-center">
           {navItems.map((link, id) => (
